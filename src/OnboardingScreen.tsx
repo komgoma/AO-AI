@@ -9,8 +9,8 @@ type OnboardingProps = {
 
 // アップデート情報
 const updates = [
-  { version: "0.2.0", date: "2025/4/24", changes: ["LINE会話データ分析機能の追加", "会話スタイルの自動検出", "分析結果をAIクローンに反映する機能", "会話UIの改善"] },
-  { version: "0.1.0", date: "2025/4/17", changes: ["プロジェクト初期構築", "AIクローン基本機能実装", "質問リスト（15項目）設計", "オンボーディング画面の追加"] }
+  { version: "0.2.0", date: "2025/8/8", changes: ["LINE会話データ分析機能の追加", "会話スタイルの自動検出", "分析結果をAIクローンに反映する機能", "会話UIの改善"] },
+  { version: "0.1.0", date: "2025/7/17", changes: ["プロジェクト初期構築", "AIクローン基本機能実装", "質問リスト（15項目）設計", "オンボーディング画面の追加"] }
 ];
 
 const OnboardingScreen: React.FC<OnboardingProps> = ({ onStart, setAiName, aiName }) => {
@@ -30,7 +30,7 @@ const OnboardingScreen: React.FC<OnboardingProps> = ({ onStart, setAiName, aiNam
           <div className="p-8 md:p-12 text-center">
             <div className="inline-block p-3 bg-white/30 backdrop-blur-sm rounded-2xl mb-6">
               <div className="bg-gradient-to-r from-purple-500 to-pink-500 text-white rounded-xl px-4 py-2 text-sm font-medium">
-                課題研究プロジェクト
+                AO入学試験
               </div>
             </div>
             <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent mb-4">
@@ -95,7 +95,7 @@ const OnboardingScreen: React.FC<OnboardingProps> = ({ onStart, setAiName, aiNam
                       <div className="w-12 h-12 bg-gradient-to-br from-amber-500 to-red-500 rounded-xl flex items-center justify-center mb-4">
                         <Github size={24} className="text-white" />
                       </div>
-                      <h3 className="text-lg font-semibold mb-2">オープンソースの予定？？</h3>
+                      <h3 className="text-lg font-semibold mb-2">オープンソース</h3>
                       <p className="text-gray-700">
                         React、TypeScript、TailwindCSSをベースに構築。
                       </p>
@@ -148,7 +148,7 @@ const OnboardingScreen: React.FC<OnboardingProps> = ({ onStart, setAiName, aiNam
                   value={aiName}
                   onChange={(e) => setAiName(e.target.value)}
                   className="w-full bg-white/50 backdrop-blur-sm border border-white/30 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-purple-500/50 placeholder-gray-500/50 text-gray-800 mb-4"
-                  placeholder="AIの名前を入力..."
+                  placeholder="AIの名前を入力してください。"
                 />
                 <button
                   onClick={onStart}
@@ -163,7 +163,7 @@ const OnboardingScreen: React.FC<OnboardingProps> = ({ onStart, setAiName, aiNam
           
           {/* フッター */}
           <div className="px-8 py-4 bg-black/5 backdrop-blur-sm border-t border-white/10 text-center text-gray-600 text-sm">
-            © 2025 AI会話クローン | 課題研究プロジェクト | <a href="#" className="text-purple-600 hover:underline">利用規約</a> | <a href="#" className="text-purple-600 hover:underline">プライバシーポリシー</a>
+            © 2025 AI会話クローン | AO入学試験 | <a href="#" className="text-purple-600 hover:underline">利用規約</a> | <a href="#" className="text-purple-600 hover:underline">プライバシーポリシー</a>
           </div>
         </div>
       </div>

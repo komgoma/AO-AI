@@ -11,7 +11,7 @@ type Question = {
 
 const initialQuestions: Question[] = [
   // 個性や話し方を反映する質問
-  { id: 1, text: "自己紹介をしてください。", answer: "" },
+  { id: 1, text: "あなたの自己紹介をしてください。", answer: "" },
   { id: 2, text: "あなたがよく使うフレーズや口癖は何ですか？", answer: "" },
   { id: 3, text: "友人や同僚からどんな性格だと言われますか？", answer: "" },
   { id: 4, text: "普段どんなトーンや言葉遣いで話しますか？（例：丁寧、カジュアル、ユーモラスなど）", answer: "" },
