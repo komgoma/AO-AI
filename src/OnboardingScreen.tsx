@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { ArrowRight, Github, Calendar, Info, UserPlus, Code, RefreshCw } from 'lucide-react';
+import React from 'react';
+import { ArrowRight,  } from 'lucide-react';
 
 type OnboardingProps = {
   onStart: () => void;
@@ -13,8 +13,10 @@ const updates = [
   { version: "0.1.0", date: "2025/7/17", changes: ["プロジェクト初期構築", "AIクローン基本機能実装", "質問リスト（15項目）設計", "オンボーディング画面の追加"] }
 ];
 
+
 const OnboardingScreen: React.FC<OnboardingProps> = ({ onStart, setAiName, aiName }) => {
-  const [activeTab, setActiveTab] = useState<'about' | 'updates'>('about');
+
+const [activeTab, setActiveTab] = useState<'about' | 'updates'>('about');
 
   return (
     <div className="min-h-screen bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-sky-400 via-rose-100 to-lime-100 relative overflow-hidden">
@@ -37,7 +39,10 @@ const OnboardingScreen: React.FC<OnboardingProps> = ({ onStart, setAiName, aiNam
               AI会話クローン
             </h1>
             <p className="text-gray-800/90 text-lg md:text-xl mb-8 max-w-3xl mx-auto">
-              あなたの個性を反映したAIクローンを作成し、まるであなた自身が話しているかのような自然な対話を実現します。
+              あなたの性格を反映したAIクローンを作成し、まるであなた自身が話しているかのような自然な対話を実現します。
+            </p>
+           
+            あなたの個性を反映したAIクローンを作成し、まるであなた自身が話しているかのような自然な対話を実現します。
             </p>
             
             {/* タブナビゲーション */}
@@ -80,7 +85,7 @@ const OnboardingScreen: React.FC<OnboardingProps> = ({ onStart, setAiName, aiNam
                       <h3 className="text-lg font-semibold mb-2">パーソナライズドAI</h3>
                       <p className="text-gray-700">
                         質問に答えることであなたの個性を学習し、話し方や考え方を模倣するAIクローンを作成します。
-                      </p>
+                        </p>
                     </div>
                     <div className="bg-white/20 backdrop-blur-sm p-6 rounded-2xl">
                       <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-green-500 rounded-xl flex items-center justify-center mb-4">
@@ -138,7 +143,7 @@ const OnboardingScreen: React.FC<OnboardingProps> = ({ onStart, setAiName, aiNam
                 </div>
               )}
             </div>
-            
+
             {/* AIの名前入力とスタートボタン */}
             <div className="max-w-md mx-auto">
               <div className="bg-white/30 backdrop-blur-sm p-6 rounded-2xl">
