@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowRight,  } from 'lucide-react';
+import { ArrowRight} from 'lucide-react';
 
 type OnboardingProps = {
   onStart: () => void;
@@ -7,16 +7,7 @@ type OnboardingProps = {
   aiName: string;
 };
 
-// アップデート情報
-const updates = [
-  { version: "0.2.0", date: "2025/8/8", changes: ["LINE会話データ分析機能の追加", "会話スタイルの自動検出", "分析結果をAIクローンに反映する機能", "会話UIの改善"] },
-  { version: "0.1.0", date: "2025/7/17", changes: ["プロジェクト初期構築", "AIクローン基本機能実装", "質問リスト（15項目）設計", "オンボーディング画面の追加"] }
-];
-
-
 const OnboardingScreen: React.FC<OnboardingProps> = ({ onStart, setAiName, aiName }) => {
-
-const [activeTab, setActiveTab] = useState<'about' | 'updates'>('about');
 
   return (
     <div className="min-h-screen bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-sky-400 via-rose-100 to-lime-100 relative overflow-hidden">
@@ -41,108 +32,6 @@ const [activeTab, setActiveTab] = useState<'about' | 'updates'>('about');
             <p className="text-gray-800/90 text-lg md:text-xl mb-8 max-w-3xl mx-auto">
               あなたの性格を反映したAIクローンを作成し、まるであなた自身が話しているかのような自然な対話を実現します。
             </p>
-           
-            あなたの個性を反映したAIクローンを作成し、まるであなた自身が話しているかのような自然な対話を実現します。
-            </p>
-            
-            {/* タブナビゲーション */}
-            <div className="flex justify-center mb-8">
-              <div className="bg-white/20 backdrop-blur-sm p-1 rounded-xl inline-flex">
-                <button 
-                  onClick={() => setActiveTab('about')}
-                  className={`px-4 py-2 rounded-lg text-sm font-medium transition-all ${
-                    activeTab === 'about' 
-                      ? 'bg-white/80 text-gray-800 shadow-sm' 
-                      : 'text-gray-700 hover:bg-white/40'
-                  }`}
-                >
-                  <Info size={16} className="inline mr-1" />
-                  アプリ情報
-                </button>
-                <button 
-                  onClick={() => setActiveTab('updates')}
-                  className={`px-4 py-2 rounded-lg text-sm font-medium transition-all ${
-                    activeTab === 'updates' 
-                      ? 'bg-white/80 text-gray-800 shadow-sm' 
-                      : 'text-gray-700 hover:bg-white/40'
-                  }`}
-                >
-                  <RefreshCw size={16} className="inline mr-1" />
-                  更新履歴
-                </button>
-              </div>
-            </div>
-            
-            {/* タブコンテンツ */}
-            <div className="mb-8">
-              {activeTab === 'about' && (
-                <div className="animate-fadeIn">
-                  <div className="grid md:grid-cols-3 gap-6 text-left">
-                    <div className="bg-white/20 backdrop-blur-sm p-6 rounded-2xl">
-                      <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-pink-500 rounded-xl flex items-center justify-center mb-4">
-                        <UserPlus size={24} className="text-white" />
-                      </div>
-                      <h3 className="text-lg font-semibold mb-2">パーソナライズドAI</h3>
-                      <p className="text-gray-700">
-                        質問に答えることであなたの個性を学習し、話し方や考え方を模倣するAIクローンを作成します。
-                        </p>
-                    </div>
-                    <div className="bg-white/20 backdrop-blur-sm p-6 rounded-2xl">
-                      <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-green-500 rounded-xl flex items-center justify-center mb-4">
-                        <Code size={24} className="text-white" />
-                      </div>
-                      <h3 className="text-lg font-semibold mb-2">先進技術</h3>
-                      <p className="text-gray-700">
-                        Google Gemini 2.0 Flashを活用し、高度な自然言語処理と文脈理解能力を実現しています。
-                      </p>
-                    </div>
-                    <div className="bg-white/20 backdrop-blur-sm p-6 rounded-2xl">
-                      <div className="w-12 h-12 bg-gradient-to-br from-amber-500 to-red-500 rounded-xl flex items-center justify-center mb-4">
-                        <Github size={24} className="text-white" />
-                      </div>
-                      <h3 className="text-lg font-semibold mb-2">オープンソース</h3>
-                      <p className="text-gray-700">
-                        React、TypeScript、TailwindCSSをベースに構築。
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              )}
-              
-              {activeTab === 'updates' && (
-                <div className="animate-fadeIn">
-                  <div className="bg-white/20 backdrop-blur-sm rounded-2xl overflow-hidden">
-                    {updates.map((update, index) => (
-                      <div key={index} className={`p-6 ${index !== updates.length - 1 ? 'border-b border-white/30' : ''}`}>
-                        <div className="flex justify-between items-start mb-3">
-                          <div>
-                            <h3 className="text-lg font-semibold">バージョン {update.version}</h3>
-                            <p className="text-gray-600 text-sm flex items-center">
-                              <Calendar size={14} className="mr-1" /> {update.date}
-                            </p>
-                          </div>
-                          <span className={`
-                            text-xs px-2 py-1 rounded-full 
-                            ${index === 0 ? 'bg-green-100 text-green-800' : 
-                              index === 1 ? 'bg-blue-100 text-blue-800' : 
-                              'bg-purple-100 text-purple-800'}
-                          `}>
-                            {index === 0 ? '最新' : index === 1 ? '安定版' : '初期リリース'}
-                          </span>
-                        </div>
-                        <ul className="text-gray-700 text-sm">
-                          {update.changes.map((change, i) => (
-                            <li key={i} className="mb-1 flex items-start">
-                              <span className="mr-2 text-purple-500">•</span> {change}
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              )}
-            </div>
 
             {/* AIの名前入力とスタートボタン */}
             <div className="max-w-md mx-auto">
