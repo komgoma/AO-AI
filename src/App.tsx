@@ -859,7 +859,7 @@ ${dataExcerpt}
                   <div
                     className={`w-10 h-10 rounded-2xl flex items-center justify-center shadow-lg ${
                       message.sender === 'user'
-                        ? 'bg-gradient-to-r from-yellow-500 to-sky-500'
+                        ? 'bg-gradient-to-r from-cyan-500 to-yellow-500'
                         : 'bg-white/50 backdrop-blur-sm'
                     }`}
                   >
@@ -872,7 +872,7 @@ ${dataExcerpt}
                   <div
                     className={`px-6 py-4 rounded-2xl max-w-[70%] shadow-lg ${
                       message.sender === 'user'
-                        ? 'bg-gradient-to-r from-yellow-500 to-sky-500 text-white'
+                        ? 'bg-gradient-to-r from-cyan-500 to-yellow-500 text-white'
                         : 'bg-white/50 backdrop-blur-sm text-gray-800/90'
                     }`}
                   >
@@ -914,7 +914,7 @@ ${dataExcerpt}
             />
             <button
               onClick={handleSendMessage}
-              className={`bg-gradient-to-r from-yellow-500 to-sky-500 text-white p-4 rounded-xl transition-all duration-300 shadow-lg ${
+              className={`bg-gradient-to-r from-cyan-500 to-yellow-500 text-white p-4 rounded-xl transition-all duration-300 shadow-lg ${
                 isLoading ? 'opacity-70 cursor-not-allowed' : 'hover:opacity-90 hover:shadow-xl'
               }`}
               disabled={isLoading || !input.trim()}
