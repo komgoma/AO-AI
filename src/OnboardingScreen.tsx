@@ -22,11 +22,11 @@ const OnboardingScreen: React.FC<OnboardingProps> = ({ onStart, setAiName, aiNam
           {/* ヒーローセクション */}
           <div className="p-8 md:p-12 text-center">
             <div className="inline-block p-3 bg-white/30 backdrop-blur-sm rounded-2xl mb-6">
-              <div className="bg-gradient-to-r from-sky-500 to-cyan-500 text-white rounded-xl px-4 py-2 text-sm font-medium">
+              <div className="bg-gradient-to-r from-sky-500 to-yellow-500 text-white rounded-xl px-4 py-2 text-sm font-medium">
                 AO入学試験
               </div>
             </div>
-            <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-sky-600 to-cyan-600 bg-clip-text text-transparent mb-4">
+            <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-lime-600 to-emerald-600 bg-clip-text text-transparent mb-4">
               AI会話クローン
             </h1>
             <p className="text-gray-800/90 text-lg md:text-xl mb-8 max-w-3xl mx-auto">
@@ -57,7 +57,7 @@ const OnboardingScreen: React.FC<OnboardingProps> = ({ onStart, setAiName, aiNam
           
           {/* フッター */}
           <div className="px-8 py-4 bg-black/5 backdrop-blur-sm border-t border-white/10 text-center text-gray-600 text-sm">
-            © 2025 AI会話クローン | AO入学試験 | <a href="#" className="text-sky-600 hover:underline">利用規約</a> | <a href="#" className="text-sky-600 hover:underline">プライバシーポリシー</a>
+            © 2025 AI会話クローン | AO入学試験 | <a href="#" className="text-emerald-600 hover:underline">利用規約</a> | <a href="#" className="text-emerald-600 hover:underline">プライバシーポリシー</a>
           </div>
         </div>
       </div>
