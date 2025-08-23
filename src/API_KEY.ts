@@ -3,7 +3,6 @@ import { GoogleGenerativeAI } from '@google/generative-ai';
 // APIキーは環境変数から取得するか、安全な方法で管理してください
 // 実際の使用時には.envファイルなどを使用することをお勧めします
 const API_KEY = import.meta.env.VITE_GEMINI_API_KEY || '';
-console.log('APIコード:',API_KEY);
 // Gemini APIの初期化
 const genAI = new GoogleGenerativeAI(API_KEY);
 // gemini-2.0-flashモデルを使用
