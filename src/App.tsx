@@ -196,9 +196,10 @@ function App() {
     try {
       // APIキーが設定されているか確認
       const apiKey = import.meta.env.VITE_GEMINI_API_KEY;
+        console.log('APIキー:', apiKey); // デバッグコード
       if (!apiKey) {
-        throw new Error('APIキーが設定されていません。.envファイルにVITE_GEMINI_API_KEYを設定してください。');
-      }
+      throw new Error('APIキーが設定されていません。.envファイルにVITE_GEMINI_API_KEYを設定してください。');
+        }
 
       // Gemini APIに送信
       const aiResponse = await sendMessageToGemini(userMessage, systemPrompt, chatHistory);
