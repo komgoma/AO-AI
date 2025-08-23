@@ -5,7 +5,7 @@ import { GoogleGenerativeAI } from '@google/generative-ai';
 const API_KEY = import.meta.env.VITE_GEMINI_API_KEY || '';
 // Gemini APIの初期化
 const genAI = new GoogleGenerativeAI(API_KEY);
-console.log('GenAI インスタンス:', genAI); // デバッグコード// gemini-2.0-flashモデルを使用
+// gemini-2.0-flashモデルを使用
 const model = genAI.getGenerativeModel({
   model: 'gemini-2.0-flash',
   generationConfig: {
