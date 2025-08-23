@@ -197,7 +197,7 @@ function App() {
       // APIキーが設定されているか確認
       const apiKey = import.meta.env.VITE_GEMINI_API_KEY;
 　　　　　if (!apiKey) {
-　　　　　　　throw nex Error('APIキー:',apikey);//デバッグコード
+　　　　　　　throw new Error('APIキー:',apikey);//デバッグコード
           throw new Error('APIキーが設定されていません。.envファイルにVITE_GEMINI_API_KEYを設定してください。');
 　　　　　　}
 　　　　// Gemini APIに送信
