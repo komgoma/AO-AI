@@ -11,27 +11,27 @@ type Question = {
 
 const initialQuestions: Question[] = [
   // 個性や話し方を反映する質問
-  { id: 1, text: "あなたの自己紹介をしてください。", answer: "" },
-  { id: 2, text: "あなたがよく使うフレーズや口癖は何ですか？（例：なんでやねん、まあいいかなど）", answer: "" },
-  { id: 3, text: "まわりの人から、どのような性格だと言われますか？", answer: "" },
-  { id: 4, text: "普段どのようなトーンや言葉遣いで話しますか？（例：丁寧、落ち着いた、明るいなど）", answer: "" },
-  { id: 5, text: "あなたの趣味は何ですか？（ない場合は、最近していることでも可）", answer: "" },
+  { id: 1, text: "自己紹介をしてください。", answer: "" },
+  { id: 2, text: "あなたがよく使うフレーズや口癖は何ですか？", answer: "" },
+  { id: 3, text: "友人や同僚からどんな性格だと言われますか？", answer: "" },
+  { id: 4, text: "普段どんなトーンや言葉遣いで話しますか？（例：丁寧、カジュアル、ユーモラスなど）", answer: "" },
+  { id: 5, text: "好きな話題や関心のある分野は何ですか？", answer: "" },
   
   // 知識や専門性を引き出す質問
-  { id: 6, text: "あなたの得意なことは何ですか？", answer: "" },
-  { id: 7, text: "あなたが一番苦労したことは何ですか？", answer: "" },
-  { id: 8, text: "あなたが友達に話しがちな内容は何ですか？", answer: "" },
-  { id: 9, text: "AIクローンがあったら、どんな場面で活用したいですか？", answer: "" },
+  { id: 6, text: "あなたの専門分野や得意なことは何ですか？", answer: "" },
+  { id: 7, text: "これまでに執筆した記事やプレゼン資料などがあれば教えてください。", answer: "" },
+  { id: 8, text: "よく受ける質問や、他人に説明することが多い内容は何ですか？", answer: "" },
+  { id: 9, text: "どのようなテーマでAIクローンを活用したいですか？", answer: "" },
   
   // 応答パターンや限界を設定する質問
-  { id: 10, text: "どのような質問は避けたほうがいいですか？", answer: "" },
-  { id: 11, text: "AIクローンの返答にどのような感情を入れてほしいですか？（例:冷静、やさしいなど）", answer: "" },
-  { id: 12, text: "どのような時でも大事にしていたい考え方や行動はありますか？", answer: "" },
+  { id: 10, text: "回答したくない話題や避けてほしい質問はありますか？", answer: "" },
+  { id: 11, text: "AIクローンにはどのようなガイドラインやルールを設けたいですか？", answer: "" },
+  { id: 12, text: "どのような状況でも一貫して守ってほしい態度や価値観はありますか？", answer: "" },
   
   // 実際の会話サンプルや状況設定の質問
-  { id: 13, text: "あなたのいつもの一日の過ごし方を教えてください", answer: "" },
-  { id: 14, text: "友達に「今日は長かったね」と言われたとき、どのように返答しますか？", answer: "" },
-  { id: 15, text: "友達が新しい物事に挑戦するとき、どのように返答しますか？", answer: "" }
+  { id: 13, text: "典型的な一日の流れや、よくある相談内容を教えてください。", answer: "" },
+  { id: 14, text: "「今日は長い一日だった」と言われたとき、どのように返答しますか？", answer: "" },
+  { id: 15, text: "新しいことに挑戦する際の考え方やアドバイスを教えてください。", answer: "" }
 ];
 
 type Message = {
@@ -196,10 +196,11 @@ function App() {
     try {
       // APIキーが設定されているか確認
       const apiKey = import.meta.env.VITE_GEMINI_API_KEY;
-　　　　　if (!apiKey) {
-          throw new Error('APIキーが設定されていません。.envファイルにVITE_GEMINI_API_KEYを設定してください。');
-　　　　　　}
-　　　　// Gemini APIに送信
+      if (!apiKey) {
+        throw new Error('APIキーが設定されていません。.envファイルにVITE_GEMINI_API_KEYを設定してください。');
+      }
+
+      // Gemini APIに送信
       const aiResponse = await sendMessageToGemini(userMessage, systemPrompt, chatHistory);
       
       // チャット履歴を更新
@@ -454,7 +455,7 @@ ${dataExcerpt}
   };
 
   return (
-    <div className="min-h-screen bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-cyan-400 via-yellow-200 to-sky-200 relative overflow-hidden">
+    <div className="min-h-screen bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-sky-400 via-rose-100 to-lime-100 relative overflow-hidden">
       <div className="absolute inset-0 bg-grid-white/[0.2] bg-[length:20px_20px] pointer-events-none"></div>
       
       {step === 'welcome' && (
@@ -503,7 +504,7 @@ ${dataExcerpt}
                   <button
                     onClick={analyzeLINEData}
                     disabled={!lineData || !userName || isAnalyzingLine}
-                    className={`text-xs bg-gradient-to-r from-cyan-500 to-yellow-500 text-white px-3 py-1.5 rounded-lg transition-colors flex-1 ${
+                    className={`text-xs bg-gradient-to-r from-purple-500 to-pink-500 text-white px-3 py-1.5 rounded-lg transition-colors flex-1 ${
                       !lineData || !userName || isAnalyzingLine ? 'opacity-50 cursor-not-allowed' : 'hover:opacity-90'
                     }`}
                   >
@@ -530,7 +531,7 @@ ${dataExcerpt}
                     </div>
                     <div className="h-1.5 w-full bg-gray-200 rounded-full overflow-hidden">
                       <div 
-                        className="h-full bg-gradient-to-r from-cyan-500 to-yellow-500 transition-all duration-500"
+                        className="h-full bg-gradient-to-r from-purple-500 to-pink-500 transition-all duration-500"
                         style={{ 
                           width: analysisStage === 'extracting' ? '30%' : 
                                  analysisStage === 'analyzing' ? '60%' : 
@@ -549,7 +550,7 @@ ${dataExcerpt}
                     {analysisStage === 'complete' && (
                       <button 
                         onClick={toggleAnalysisDetails}
-                        className="mt-1 text-sky-600 hover:text-sky-800 font-medium"
+                        className="mt-1 text-purple-600 hover:text-purple-800 font-medium"
                       >
                         {showAnalysisDetails ? '詳細を隠す' : '詳細を表示'}
                       </button>
@@ -608,9 +609,9 @@ ${dataExcerpt}
             <div className="backdrop-blur-xl bg-white/30 rounded-3xl shadow-[0_8px_32px_0_rgba(31,38,135,0.37)] border border-white/20 p-8 max-w-md w-full">
               <div className="mb-6">
                 <div className="flex items-center gap-3 mb-4">
-                  <div className="h-1 flex-1 rounded-full bg-gradient-to-r from-sky-500/30 to-yellow-500/30">
+                  <div className="h-1 flex-1 rounded-full bg-gradient-to-r from-purple-500/30 to-pink-500/30">
                     <div 
-                      className="h-1 rounded-full bg-gradient-to-r from-cyan-500 to-yellow-500 transition-all duration-300"
+                      className="h-1 rounded-full bg-gradient-to-r from-purple-500 to-pink-500 transition-all duration-300"
                       style={{ width: `${((currentQuestion + 1) / questions.length) * 100}%` }}
                     ></div>
                   </div>
@@ -641,7 +642,7 @@ ${dataExcerpt}
                 />
                 <button
                   onClick={() => input && handleQuestionAnswer(input)}
-                  className="bg-gradient-to-r from-cyan-500 to-yellow-500 text-white p-3 rounded-xl hover:opacity-90 transition-all duration-300 shadow-lg hover:shadow-xl"
+                  className="bg-gradient-to-r from-purple-500 to-pink-500 text-white p-3 rounded-xl hover:opacity-90 transition-all duration-300 shadow-lg hover:shadow-xl"
                   disabled={!input}
                 >
                   <ChevronRight size={24} />
@@ -676,7 +677,7 @@ ${dataExcerpt}
                   <h2 className="text-xl font-semibold text-gray-800/90">AIクローンを作成する</h2>
                   <button
                     onClick={handleStartChat}
-                    className="px-4 py-2 bg-gradient-to-r from-cyan-500 to-yellow-500 text-white rounded-xl text-sm font-medium hover:opacity-90 transition-all"
+                    className="px-4 py-2 bg-gradient-to-r from-purple-500 to-pink-500 text-white rounded-xl text-sm font-medium hover:opacity-90 transition-all"
                   >
                     会話を開始
                   </button>
@@ -698,7 +699,7 @@ ${dataExcerpt}
                     value={userName}
                     onChange={(e) => setUserName(e.target.value)}
                     placeholder="あなたのLINEでの表示名"
-                    className="bg-white/50 backdrop-blur-sm border border-white/30 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-cyan-500/50 text-gray-800 text-sm"
+                    className="bg-white/50 backdrop-blur-sm border border-white/30 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-purple-500/50 text-gray-800 text-sm"
                   />
                   <div className="flex gap-2">
                     <button
@@ -717,7 +718,7 @@ ${dataExcerpt}
                     <button
                       onClick={analyzeLINEData}
                       disabled={!lineData || !userName || isAnalyzingLine}
-                      className={`flex-1 bg-gradient-to-r from-cyan-500 to-yellow-500 text-white rounded-xl px-4 py-3 text-sm ${
+                      className={`flex-1 bg-gradient-to-r from-purple-500 to-pink-500 text-white rounded-xl px-4 py-3 text-sm ${
                         !lineData || !userName || isAnalyzingLine ? 'opacity-50 cursor-not-allowed' : 'hover:opacity-90'
                       }`}
                     >
@@ -746,7 +747,7 @@ ${dataExcerpt}
                     </div>
                     <div className="h-1.5 w-full bg-gray-200 rounded-full overflow-hidden">
                       <div 
-                        className="h-full bg-gradient-to-r from-sky-500 to-yellow-500 transition-all duration-500"
+                        className="h-full bg-gradient-to-r from-purple-500 to-pink-500 transition-all duration-500"
                         style={{ 
                           width: analysisStage === 'extracting' ? '30%' : 
                                  analysisStage === 'analyzing' ? '60%' : 
@@ -765,7 +766,7 @@ ${dataExcerpt}
                       <p className="text-sm text-green-600 font-medium">分析が完了しました！</p>
                       <button 
                         onClick={toggleAnalysisDetails}
-                        className="text-xs text-sky-600 hover:text-redsky-800"
+                        className="text-xs text-purple-600 hover:text-purple-800"
                       >
                         {showAnalysisDetails ? '詳細を隠す' : '詳細を表示'}
                       </button>
@@ -781,7 +782,7 @@ ${dataExcerpt}
                     
                     <button
                       onClick={handleStartChat}
-                      className="mt-4 w-full bg-gradient-to-r from-sky-500 to-yellow-500 text-white rounded-xl px-4 py-3 hover:opacity-90 transition-all shadow-lg hover:shadow-xl"
+                      className="mt-4 w-full bg-gradient-to-r from-purple-500 to-pink-500 text-white rounded-xl px-4 py-3 hover:opacity-90 transition-all shadow-lg hover:shadow-xl"
                     >
                       分析結果を反映してAIクローンと会話する
                     </button>
@@ -808,13 +809,13 @@ ${dataExcerpt}
                     value={temporaryName}
                     onChange={(e) => setTemporaryName(e.target.value)}
                     onKeyPress={handleKeyPress}
-                    className="bg-white/50 backdrop-blur-sm border border-white/30 rounded-lg px-2 py-1 focus:outline-none focus:ring-1 focus:ring-sky-500/50 text-gray-800 text-sm"
+                    className="bg-white/50 backdrop-blur-sm border border-white/30 rounded-lg px-2 py-1 focus:outline-none focus:ring-1 focus:ring-purple-500/50 text-gray-800 text-sm"
                     placeholder="AIの名前..."
                     autoFocus
                   />
                   <button
                     onClick={handleNameChange}
-                    className="text-xs bg-sky-500 text-white px-2 py-1 rounded-lg hover:bg-cyan-600 transition-colors"
+                    className="text-xs bg-purple-500 text-white px-2 py-1 rounded-lg hover:bg-purple-600 transition-colors"
                   >
                     保存
                   </button>
@@ -858,7 +859,7 @@ ${dataExcerpt}
                   <div
                     className={`w-10 h-10 rounded-2xl flex items-center justify-center shadow-lg ${
                       message.sender === 'user'
-                        ? 'bg-gradient-to-r from-cyan-500 to-yellow-500'
+                        ? 'bg-gradient-to-r from-purple-500 to-pink-500'
                         : 'bg-white/50 backdrop-blur-sm'
                     }`}
                   >
@@ -871,7 +872,7 @@ ${dataExcerpt}
                   <div
                     className={`px-6 py-4 rounded-2xl max-w-[70%] shadow-lg ${
                       message.sender === 'user'
-                        ? 'bg-gradient-to-r from-cyan-500 to-yellow-500 text-white'
+                        ? 'bg-gradient-to-r from-purple-500 to-pink-500 text-white'
                         : 'bg-white/50 backdrop-blur-sm text-gray-800/90'
                     }`}
                   >
@@ -905,7 +906,7 @@ ${dataExcerpt}
               value={input}
               onChange={(e) => setInput(e.target.value)}
               onKeyPress={handleKeyPress}
-              className="flex-1 bg-white/50 backdrop-blur-sm border border-white/30 rounded-xl px-6 py-4 focus:outline-none focus:ring-2 focus:ring-sky-500/50 placeholder-gray-500/50 text-gray-800"
+              className="flex-1 bg-white/50 backdrop-blur-sm border border-white/30 rounded-xl px-6 py-4 focus:outline-none focus:ring-2 focus:ring-purple-500/50 placeholder-gray-500/50 text-gray-800"
               placeholder="メッセージを入力..."
               disabled={isLoading}
               ref={inputRef}
@@ -913,7 +914,7 @@ ${dataExcerpt}
             />
             <button
               onClick={handleSendMessage}
-              className={`bg-gradient-to-r from-cyan-500 to-yellow-500 text-white p-4 rounded-xl transition-all duration-300 shadow-lg ${
+              className={`bg-gradient-to-r from-purple-500 to-pink-500 text-white p-4 rounded-xl transition-all duration-300 shadow-lg ${
                 isLoading ? 'opacity-70 cursor-not-allowed' : 'hover:opacity-90 hover:shadow-xl'
               }`}
               disabled={isLoading || !input.trim()}
